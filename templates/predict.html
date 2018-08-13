@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标签预测</title>
+</head>
+
+<body>
+<div id="nav">
+<form method="get">
+    <p>输入工单文本:<input name="order" type="text" style="height: 30px; width: 500px"></p>
+    <p><input type="submit" value="预测"></p>
+</form>
+</div>
+
+<div id="result">
+    {%if res%}
+    <p style="fontsize:20px">预测结果:{{res}}</p>
+    {%endif%}
+
+    {%if prob%}
+    <p style="fontsize:20px">概率:</p>
+    <ul>
+        {%for p in prob%}
+        <li>{{cls[loop.index0]}}:{{p}}</li>
+        {%endfor%}
+    </ul>
+    {%endif%}
+</div>
+
+</body>
+</html>
